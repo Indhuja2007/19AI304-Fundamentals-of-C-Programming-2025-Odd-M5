@@ -240,7 +240,34 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 11:
   Stop
 # Program:
+```
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+    int *ptr;
+    int n, i, sum = 0;
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+    ptr = (int *)calloc(n, sizeof(int));
+    if(ptr == NULL)
+    {
+        printf("Memory Allocation Failed");
+        return 0;
+    }
+    printf("Enter elements:\n");
+    for(i = 0; i < n; i++)
+        scanf("%d", ptr + i);
+    for(i = 0; i < n; i++)
+        sum += *(ptr + i);
+    printf("Sum = %d", sum);
+    free(ptr);
+    return 0;
+}
+```
 # Output:
+<img width="401" height="215" alt="image" src="https://github.com/user-attachments/assets/81ff452a-b1f4-4c04-9f09-589874cc2f88" />
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -278,31 +305,27 @@ Thus, the program was implemented and executed successfully, and the required ou
 # Program:
 ```
 #include <stdio.h>
-#include <stdlib.h>
+void displayArray(int *arr, int size)
+{
+    int i;
+    printf("Array Elements are:\n");
+    for(i = 0; i < size; i++)
+        printf("%d ", *(arr + i));
+}
 int main()
 {
-    int *ptr;
-    int n, i, sum = 0;
-    printf("Enter number of elements: ");
-    scanf("%d", &n);
-    ptr = (int *)calloc(n, sizeof(int));
-    if(ptr == NULL)
-    {
-        printf("Memory Allocation Failed");
-        return 0;
-    }
-    printf("Enter elements:\n");
-    for(i = 0; i < n; i++)
-        scanf("%d", ptr + i);
-    for(i = 0; i < n; i++)
-        sum += *(ptr + i);
-    printf("Sum = %d", sum);
-    free(ptr);
+    int arr[5];
+    int i;
+    printf("Enter 5 integers:\n");
+    for(i = 0; i < 5; i++)
+        scanf("%d", &arr[i]);
+    displayArray(arr, 5);
     return 0;
 }
 ```
 # Output:
-<img width="401" height="215" alt="image" src="https://github.com/user-attachments/assets/81ff452a-b1f4-4c04-9f09-589874cc2f88" />
+<img width="585" height="203" alt="image" src="https://github.com/user-attachments/assets/9129a6ae-d093-4317-86a8-c5e4aba75d19" />
+
 
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
